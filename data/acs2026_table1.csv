@@ -1,0 +1,44 @@
+site,level,new_cases_both,deaths_both,deaths_male,deaths_female
+All sites,0,2114850,626140,327290,298850
+Oral cavity & pharynx,1,60480,13150,9420,3730
+Esophagus,1,22530,16290,12940,3350
+Stomach,1,31510,10740,6360,4380
+Small intestine,1,14450,2170,1250,920
+Colon & rectum,1,158850,55230,30110,25120
+"Anus, anal canal, & anorectum",1,11270,1700,570,1130
+Liver & intrahepatic bile duct,1,42340,30980,19650,11330
+Gallbladder & other biliary,1,12640,4590,1960,2630
+Pancreas,1,67530,52740,27230,25510
+Other digestive organs,1,8850,4260,1930,2330
+Larynx,1,12290,3960,3180,780
+Lung & bronchus,1,229410,124990,63040,61950
+Other respiratory organs,1,6120,1600,1040,560
+Bones & joints,1,4110,2210,1240,970
+Soft tissue (including heart),1,13910,5400,2960,2440
+Melanoma of the skin,1,112000,8510,5500,3010
+Other nonepithelial skin,1,7750,6060,4350,1710
+Breast,1,324580,42670,530,42140
+Uterine cervix,1,13490,4200,,4200
+Uterine corpus,1,68270,14450,,14450
+Ovary,1,21010,12450,,12450
+Vulva,1,7130,1750,,1750
+"Vagina & other genital, female",1,7760,1720,,1720
+Prostate,1,333830,36320,36320,
+Testis,1,9810,630,630,
+"Penis & other genital, male",1,2260,450,450,
+Urinary bladder,1,84530,17870,12640,5230
+Kidney & renal pelvis,1,80450,15160,10200,4960
+Ureter & other urinary organs,1,4720,1370,920,450
+Eye & orbit,1,3200,530,280,250
+Brain & other nervous system,1,24740,18350,9970,8380
+Thyroid,1,45240,2320,1100,1220
+Other endocrine,1,7960,1180,600,580
+Hodgkin lymphoma,1,8920,1100,680,420
+Non-Hodgkin lymphoma,1,79320,19970,11710,8260
+Myeloma,1,36000,10850,5780,5070
+Acute lymphocytic leukemia,1,6250,1600,930,670
+Chronic lymphocytic leukemia,1,22760,4350,2720,1630
+Acute myeloid leukemia,1,22720,11500,6520,4980
+Chronic myeloid leukemia,1,9650,1170,630,540
+Other leukemia,1,6410,5290,3100,2190
+Other & unspecified primary sites,1,67800,54310,28850,25460
