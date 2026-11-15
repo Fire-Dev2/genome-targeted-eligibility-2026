@@ -80,7 +80,7 @@ POP=[
 ("AKT1/PTEN breast (no PIK3CA)",2023,None,"T",lambda p:D['BREAST'],(1650,19593),O((2023,None,.26,132,"capivasertib CAPItello-291 (PFS-based)")),"PFS-based"),
 ("HER2-amplified colorectal",2023,None,"T",lambda p:D['CRC'],(343,14571),O((2023,None,.38,84,"tucatinib+trastuzumab")),"decision A"),
 ("BRAF-fusion low-grade glioma",2024,None,"T",lambda p:D['BRAIN']*p['lgg'],(569,1885),O((2024,None,.51,76,"tovorafenib")),""),
-("KRAS G12C colorectal",2024,None,"T",lambda p:D['CRC'],(699,22775),O((2024,2026,.34,94,"adagrasib+cetuximab (withdrawn 9/2026)"),(2025,None,.26,53,"sotorasib+panitumumab")),""),
+("KRAS G12C colorectal",2024,None,"T",lambda p:D['CRC'],(699,22775),O((2024,2026,.34,94,"adagrasib+cetuximab (withdrawn 9/2026)"),(2025,None,.26,53,"sotorasib+panitumumab (rate used from 2026, after adagrasib withdrawal)")),""),
 ("KMT2A AML",2024,None,"T",lambda p:D['AML'],(67,2085),O((2024,None,.212,104,"revumenib CR/CRh")),""),
 ("KMT2A ALL",2024,None,"T",lambda p:D['ALL'],(24,955),O((2024,None,.212,104,"revumenib CR/CRh")),""),
 ("NRG1 NSCLC",2024,None,"T",NS,(40,10389),O((2024,None,.33,64,"zenocutuzumab")),""),
@@ -90,6 +90,7 @@ POP=[
 ("H3 K27M diffuse midline glioma",2025,None,"I",lambda p:D['BRAIN'],(470,14525),O((2025,None,.22,50,"dordaviprone")),""),
 ("NPM1 AML",2025,None,"T",lambda p:D['AML'],(584,4669),O((2025,None,.231,65,"revumenib CR/CRh")),""),
 ("NRG1 cholangiocarcinoma",2026,None,"T",CCA,(1,962),O((2026,None,.368,19,"zenocutuzumab")),""),
+("FGFR1 MLN",2022,None,"T",lambda p:0.0,(1,1),O((2022,None,.78,18,"pemigatinib CR")),"deaths not estimable; contributes 0 patients"),
 ]
 yrs=list(range(2006,2027))
 def simulate(draw=True):
