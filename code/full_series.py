@@ -36,15 +36,15 @@ POP=[
 ("BCR-ABL CML",2006,None,"T",lambda p:D['CML'],(1,1),O((2006,None,.747,553,"imatinib CCyR IRIS"),(2010,None,.80,282,"nilotinib CCyR by 12 mo ENESTnd")),""),
 ("Ph+ ALL",2006,None,"T",lambda p:D['ALL'],('ph','phall'),O((2006,None,.31,43,"imatinib MaHR R/R Ph+ ALL"),(2012,None,.41,32,"ponatinib MaHR PACE")),"published prevalence"),
 ("KIT-mutant GIST",2006,None,"T",lambda p:p['gist'],(1550,2155),O((2006,None,.514,818,"imatinib 400 mg CR+PR")),""),
-("HER2-amplified breast",2006,None,"T",lambda p:D['BREAST'],(1841,15267),O((2006,None,.45,235,"trastuzumab+chemo H0648g"),(2012,None,.802,343,"pertuzumab CLEOPATRA"),(2019,None,.603,184,"T-DXd DESTINY-Breast01")),""),
+("HER2-amplified breast",2006,None,"T",lambda p:D['BREAST'],(1841,15267),O((2006,None,.45,235,"trastuzumab+chemo H0648g"),(2012,None,.802,343,"pertuzumab CLEOPATRA"),(2019,None,.603,184,"T-DXd DESTINY-Breast01"),(2025,None,.87,374,"T-DXd+pertuzumab DESTINY-Breast09")),""),
 ("HER2-amplified esophagogastric",2010,None,"T",lambda p:D['ESO']+D['STOM'],(652,5513),O((2010,None,.47,294,"trastuzumab ToGA (Bang 2010)"),(2021,None,.73,298,"pembrolizumab+trastuzumab KEYNOTE-811")),""),
 ("BRAF V600 melanoma",2011,None,"T",lambda p:D['MEL'],(2668,9134),O((2011,None,.484,219,"vemurafenib BRIM-3"),(2014,None,.66,211,"dabrafenib+trametinib COMBI-d")),""),
 ("ALK NSCLC",2011,None,"T",NS,(600,25209),O((2011,None,.74,172,"crizotinib PROFILE 1014"),(2017,None,.79,152,"alectinib ALEX")),""),
-("EGFR common NSCLC",2013,None,"T",NS,(5301,34613),O((2013,None,.65,86,"erlotinib EURTAC"),(2018,None,.77,279,"osimertinib FLAURA")),""),
+("EGFR common NSCLC",2013,None,"T",NS,(5301,34613),O((2013,None,.65,86,"erlotinib EURTAC"),(2018,None,.77,279,"osimertinib FLAURA"),(2024,None,.78,429,"amivantamab+lazertinib MARIPOSA")),""),
 ("ROS1 NSCLC",2016,None,"T",NS,(251,25209),O((2016,None,.66,50,"crizotinib IRR"),(2019,None,.74,92,"entrectinib"),(2023,None,.79,71,"repotrectinib TKI-naive"),(2025,None,.90,103,"taletrectinib TRUST-I")),""),
 ("BRAF V600E NSCLC",2017,None,"T",NS,(525,34617),O((2017,None,.61,57,"dabrafenib+trametinib"),(2023,None,.75,59,"encorafenib+binimetinib PHAROS naive")),""),
 ("IDH2 AML",2017,None,"T",lambda p:D['AML'],(458,4424),O((2017,None,.23,199,"enasidenib CR/CRh")),""),
-("FLT3 AML",2017,None,"T",lambda p:D['AML'],('ph','flt3'),O((2018,None,.226,247,"gilteritinib CR/CRh ADMIRAL")),"midostaurin (2017) OS-based, no response rate"),
+("FLT3 AML",2017,None,"T",lambda p:D['AML'],('ph','flt3'),O((2018,None,.226,247,"gilteritinib CR/CRh ADMIRAL"),(2023,None,.55,268,"quizartinib+chemo CR QuANTUM-First (equal to placebo arm)")),"midostaurin (2017) OS-based, no response rate"),
 ("IDH1 AML",2018,None,"T",lambda p:D['AML'],(330,4670),O((2018,None,.328,174,"ivosidenib R/R CR/CRh"),(2019,None,.429,28,"ivosidenib ND unfit CR/CRh")),""),
 ("BRAF V600E anaplastic thyroid",2018,None,"T",lambda p:D['THY']*p['atc'],(152,379),O((2018,None,.53,36,"dabrafenib+trametinib")),""),
 ("NTRK fusion solid tumors",2018,None,"T",lambda p:SOLID,(484,172014),O((2018,None,.60,339,"larotrectinib current label")),""),
@@ -67,17 +67,17 @@ POP=[
 ("HRR prostate",2020,None,"I",lambda p:D['PROS'],(1193,8506),O((2020,None,.33,162,"olaparib/rucaparib")),""),
 ("TMB-H solid tumors (non-MSI)",2020,None,"I",lambda p:SOLID,('ph','tmb'),O((2020,None,.29,102,"pembrolizumab KEYNOTE-158")),""),
 ("ALK+ ALCL",2021,None,"T",lambda p:D['NHL']*p['alcl'],(21,101),O((2021,None,.90,20,"crizotinib")),""),
-("EGFR exon 20 NSCLC",2021,None,"T",NS,(585,34613),O((2021,None,.40,81,"amivantamab")),""),
+("EGFR exon 20 NSCLC",2021,None,"T",NS,(585,34613),O((2021,None,.40,81,"amivantamab CHRYSALIS"),(2024,None,.67,153,"amivantamab+chemo PAPILLON")),""),
 ("KRAS G12C NSCLC",2021,None,"T",NS,(4032,34619),O((2021,None,.36,124,"sotorasib"),(2022,None,.43,112,"adagrasib")),""),
-("IDH1 cholangiocarcinoma",2021,None,"T",CCA,(443,3264),O(),"PFS-based"),
+("IDH1 cholangiocarcinoma",2021,None,"T",CCA,(443,3264),O((2021,None,.024,126,"ivosidenib ClarIDHy (PFS-based)")),"PFS-based"),
 ("VHL disease tumors",2021,None,"T",lambda p:D['KID']*p['vhl'],(1,1),O((2021,None,.49,61,"belzutifan")),""),
 ("BRAF V600E other solid tumors",2022,None,"T",lambda p:BRF,(2826,148901),O((2022,None,.41,131,"dabrafenib+trametinib")),""),
 ("ALK+ IMT",2022,None,"T",lambda p:D['SOFT']*p['imt'],(24,55),O((2022,None,.86,14,"crizotinib")),""),
-("HER2-mutant NSCLC",2022,None,"T",NS,(746,34523),O((2022,None,.58,52,"T-DXd")),""),
+("HER2-mutant NSCLC",2022,None,"T",NS,(746,34523),O((2022,None,.58,52,"T-DXd DESTINY-Lung02"),(2025,None,.75,71,"zongertinib Beamion LUNG-1 pretreated"),(2026,None,.76,72,"zongertinib Beamion LUNG-1 untreated")),""),
 ("RET fusion other solid tumors",2022,None,"T",lambda p:RETP,(112,144970),O((2022,None,.44,41,"selpercatinib")),""),
-("ESR1 breast",2023,None,"T",lambda p:D['BREAST'],(1338,16262),O(),"PFS-based"),
+("ESR1 breast",2023,None,"T",lambda p:D['BREAST'],(1338,16262),O((2025,None,.14,112,"imlunestrant EMBER-3 (PFS-based)"),(2026,None,.19,97,"vepdegestrant VERITAC-2 (PFS-based)")),"PFS-based"),
 ("IDH1 MDS",2023,None,"T",lambda p:p['mds'],(63,2371),O((2023,None,.389,18,"ivosidenib")),""),
-("AKT1/PTEN breast (no PIK3CA)",2023,None,"T",lambda p:D['BREAST'],(1650,19593),O(),"PFS-based"),
+("AKT1/PTEN breast (no PIK3CA)",2023,None,"T",lambda p:D['BREAST'],(1650,19593),O((2023,None,.26,132,"capivasertib CAPItello-291 (PFS-based)")),"PFS-based"),
 ("HER2-amplified colorectal",2023,None,"T",lambda p:D['CRC'],(343,14571),O((2023,None,.38,84,"tucatinib+trastuzumab")),"decision A"),
 ("BRAF-fusion low-grade glioma",2024,None,"T",lambda p:D['BRAIN']*p['lgg'],(569,1885),O((2024,None,.51,76,"tovorafenib")),""),
 ("KRAS G12C colorectal",2024,None,"T",lambda p:D['CRC'],(699,22775),O((2024,2026,.34,94,"adagrasib+cetuximab (withdrawn 9/2026)"),(2025,None,.26,53,"sotorasib+panitumumab")),""),
@@ -122,7 +122,7 @@ for y in yrs:
         ed=sum(Ed[k][y] for k in c); rd=sum(Rd[k][y] for k in c)
         row[lab]=dict(E=ep/D['TOT'],Elo=q(ed)[0]/D['TOT'],Ehi=q(ed)[1]/D['TOT'],R=rp/D['TOT'],Rlo=q(rd)[0]/D['TOT'],Rhi=q(rd)[1]/D['TOT'],En=ep,Rn=rp)
     out.append(row)
-json.dump(out,open('../results/full_out.json','w'))
+json.dump(out,open('/home/claude/full_out.json','w'))
 # population table (point, 2026 and 2020)
 pt=ppt(); tab=[]
 for name,s,e,c,base,prev,sched,note in POP:
@@ -131,8 +131,8 @@ for name,s,e,c,base,prev,sched,note in POP:
     o,srcn=best_orr(sched,yy)
     tab.append(dict(name=name,start=s,end=e,cls=c,eligible=round(el),orr=o,orr_src=srcn,responders=None if o is None else round(el*o),prev=pv,note=note,
                     sched=[list(x) for x in sched]))
-json.dump(tab,open('../results/full_pops.json','w'))
-json.dump({k:[*PH[k],SOURCES.get(k,'')] for k in PH},open('../results/full_params.json','w'))
+json.dump(tab,open('/home/claude/full_pops.json','w'))
+json.dump({k:[*PH[k],SOURCES.get(k,'')] for k in PH},open('/home/claude/full_params.json','w'))
 print("Year | Targeted elig% (CI) | resp% | Targeted+informed elig% | resp%")
 for r in out:
     T,TI=r['T'],r['TI']; print(r['year'],f"{T['E']*100:.2f} ({T['Elo']*100:.2f}-{T['Ehi']*100:.2f}) | {T['R']*100:.2f} ({T['Rlo']*100:.2f}-{T['Rhi']*100:.2f}) | {TI['E']*100:.2f} ({TI['Elo']*100:.2f}-{TI['Ehi']*100:.2f}) | {TI['R']*100:.2f}")

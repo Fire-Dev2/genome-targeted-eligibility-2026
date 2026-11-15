@@ -1,22 +1,22 @@
 import json, numpy as np
 rng=np.random.default_rng(20261114)
-M=json.load(open('../data/genie_counts_by_sample_type.json')); M.append([1,1,1,1])  # idx 34: VHL disease (prevalence 1 by definition)
+M=json.load(open('/home/claude/met.json')); M.append([1,1,1,1])  # idx 34: VHL disease (prevalence 1 by definition)
 D={'NHL':19970,'LUNG':124990,'LIVER':30980,'GB':4590,'SOFT':5400,'BREAST':42670,'BRAIN':18350,'CRC':55230,'AML':11500,'ALL':1600,'PANC':52740,'OVARY':12450,'TOT':626140,'KID':15160,'MEL':8510,'THY':2320,'HEME':55830}
 BRF=D['TOT']-D['HEME']-D['MEL']-D['LUNG']-D['CRC']; RETP=D['TOT']-D['HEME']-D['LUNG']-D['THY']
 # populations: name, year, base fn(params), genie idx, CNS?, orr, orr_n, benefit tags
 P=[
 ("ALK+ ALCL",2021,lambda p:D['NHL']*p['alcl'],25,False,.90,20,"Regular","Single-arm ORR","—"),
-("EGFR exon 20 NSCLC",2021,lambda p:D['LUNG']*p['ns'],2,False,.40,81,"Accelerated","Single-arm ORR","Verified 3/2024 (PFS)"),
+("EGFR exon 20 NSCLC",2021,lambda p:D['LUNG']*p['ns'],2,False,.67,153,"Accelerated","Single-arm ORR","Verified 3/2024 (PFS)"),
 ("KRAS G12C NSCLC",2021,lambda p:D['LUNG']*p['ns'],1,False,.43,112,"Accelerated","Single-arm ORR","Unconfirmed"),
-("IDH1 cholangiocarcinoma",2021,lambda p:D['LIVER']*p['icc']+D['GB']*p['ecc'],12,False,None,None,"Regular","Randomized PFS (OS NS)","—"),
+("IDH1 cholangiocarcinoma",2021,lambda p:D['LIVER']*p['icc']+D['GB']*p['ecc'],12,False,.024,126,"Regular","Randomized PFS (OS NS)","—"),
 ("BRAF V600E other solid tumors",2022,lambda p:BRF,10,False,.41,131,"Accelerated","Single-arm ORR","Unconfirmed"),
 ("ALK+ IMT",2022,lambda p:D['SOFT']*p['imt'],24,False,.86,14,"Regular","Single-arm ORR","—"),
-("HER2-mutant NSCLC",2022,lambda p:D['LUNG']*p['ns'],5,False,.58,52,"Accelerated","Single-arm ORR","Unconfirmed"),
+("HER2-mutant NSCLC",2022,lambda p:D['LUNG']*p['ns'],5,False,.76,72,"Accelerated","Single-arm ORR","Unconfirmed"),
 ("FGFR1 MLN",2022,lambda p:0.0,20,False,.78,18,"Regular","Single-arm CR","—"),
 ("RET fusion other solid tumors",2022,lambda p:RETP,11,False,.44,41,"Accelerated","Single-arm ORR","Verified 7/2026 (ORR)"),
-("ESR1-mutant breast",2023,lambda p:D['BREAST'],15,False,None,None,"Regular","Randomized PFS","—"),
+("ESR1-mutant breast",2023,lambda p:D['BREAST'],15,False,.19,97,"Regular","Randomized PFS","—"),
 ("IDH1 MDS",2023,lambda p:p['mds'],13,False,.389,18,"Regular","Single-arm CR","—"),
-("AKT1/PTEN breast (no PIK3CA)",2023,lambda p:D['BREAST'],16,False,None,None,"Regular","Randomized PFS","—"),
+("AKT1/PTEN breast (no PIK3CA)",2023,lambda p:D['BREAST'],16,False,.26,132,"Regular","Randomized PFS","—"),
 ("BRAF-fusion low-grade glioma",2024,lambda p:D['BRAIN']*p['lgg'],27,True,.51,76,"Accelerated","Single-arm ORR","Unconfirmed"),
 ("KRAS G12C colorectal",2024,lambda p:D['CRC'],0,False,.26,53,"Accelerated (withdrawn 9/2026); sotorasib+pani regular 2025","Single-arm ORR; then randomized PFS","Adagrasib withdrawn; still covered"),
 ("KMT2A AML",2024,lambda p:D['AML'],18,False,.212,104,"Regular","Single-arm CR+CRh","—"),
@@ -53,7 +53,7 @@ def run(metastatic, n=20000):
     for y in sorted(byyr): cumE+=byyr[y][0]; cumR+=byyr[y][1]; yrs.append((y,np.median(cumE)/D['TOT'],*[v/D['TOT'] for v in q(cumE)],np.median(cumR)/D['TOT'],*[v/D['TOT'] for v in q(cumR)]))
     out['years']=yrs; return out
 A=run(False); B=run(True)
-json.dump({'all':{k:v for k,v in A.items()},'met':{k:v for k,v in B.items()}},open('../results/mc_out.json','w'),default=float)
+json.dump({'all':{k:v for k,v in A.items()},'met':{k:v for k,v in B.items()}},open('/home/claude/mc_out.json','w'),default=float)
 for lab,o in (("All samples",A),("Metastatic samples",B)):
     print(lab, f"eligible {o['E']:.0f} ({o['Ec'][0]:.0f}-{o['Ec'][1]:.0f}) = {o['Ep']*100:.2f}% ({o['Epc'][0]*100:.2f}-{o['Epc'][1]*100:.2f}); respond {o['R']:.0f} ({o['Rc'][0]:.0f}-{o['Rc'][1]:.0f}) = {o['Rp']*100:.2f}% ({o['Rpc'][0]*100:.2f}-{o['Rpc'][1]*100:.2f})")
     for y in o['years']: print('  ',y[0],' '.join(f'{v*100:.2f}' for v in y[1:]))
